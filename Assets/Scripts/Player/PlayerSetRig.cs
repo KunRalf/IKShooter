@@ -59,6 +59,14 @@ namespace Player
                 _lHand.data.target = _weapons[1].LHand;
                 _rHand.data.target = _weapons[1].RHand;
                 _rig.Build();
+            }   
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                _ak.SetActive(false);
+                _m16.SetActive(false);
+                _lHand.data.target = null;
+                _rHand.data.target = null;
+                _rig.Build();
             }
         }
     }

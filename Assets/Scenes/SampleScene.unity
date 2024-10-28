@@ -9262,7 +9262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!137 &3005001284512089116
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -22642,6 +22642,17 @@ MonoBehaviour:
   _spineSub: {fileID: 944359631}
   _head: {fileID: 1857105340}
   _weapon: {fileID: 1414321105}
+  _lHand: {fileID: 5029217979879759594}
+  _rHand: {fileID: 7502010123400609823}
+  _ak: {fileID: 2934265829470049863}
+  _m16: {fileID: 3679796761680946359}
+  _weapons:
+  - Name: AK
+    LHand: {fileID: 2014245551}
+    RHand: {fileID: 475679521}
+  - Name: M16
+    LHand: {fileID: 366896008670646951}
+    RHand: {fileID: 5209225938730742184}
 --- !u!4 &8964710239688951452
 Transform:
   m_ObjectHideFlags: 0
