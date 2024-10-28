@@ -45,7 +45,7 @@ namespace Player
             _direction = transform.forward * axis.y + transform.right * axis.x;
             _direction.Normalize();
             _rigidbody.velocity = _direction * _moveSpeed;
-            _animator.SetFloat("Velocity", _rigidbody.velocity.magnitude/_moveSpeed);
+            _animator.SetFloat("Velocity", axis.magnitude);
         }
     }
 }
