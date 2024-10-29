@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 968e964b36d749e8a56d661c88b390fd, type: 3}
+  m_Name: AK
+  m_EditorClassIdentifier: 
+  <WeaponName>k__BackingField: 
+  <Damage>k__BackingField: 0
+  <Range>k__BackingField: 0
+  <FireRate>k__BackingField: 0
+  <MaxAmmo>k__BackingField: 0
+  <RecoilAmount>k__BackingField: 0
+  <BulletSpread>k__BackingField: 0
+  <PelletCount>k__BackingField: 0
+  <SpreadAngle>k__BackingField: 0
