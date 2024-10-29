@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968e964b36d749e8a56d661c88b390fd, type: 3}
   m_Name: M16
   m_EditorClassIdentifier: 
+  <WeaponType>k__BackingField: 1
   <WeaponName>k__BackingField: M16
   <FireRate>k__BackingField: 0.85
   <MaxAmmo>k__BackingField: 30
