@@ -7,9 +7,6 @@ namespace WeaponSys
     {
         [field:Header("General Weapon Stats")]
         [field:SerializeField] public string WeaponName { get; private set; }
-
-        [field:SerializeField] public float Damage { get; private set; }
-        [field:SerializeField] public float Range { get; private set; }
         [field:SerializeField] public float FireRate { get; private set; }
         [field:SerializeField] public int MaxAmmo { get; private set; }
 

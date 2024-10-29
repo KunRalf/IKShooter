@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace WeaponSys.Bullets
 {
@@ -7,14 +8,14 @@ namespace WeaponSys.Bullets
         [SerializeField] private BulletData _bulletData; // ScriptableObject с параметрами пули
         private Rigidbody _rb;
 
-        private void Start()
+        private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
+        }
 
-            // Применяем силу к Rigidbody для начального ускорения пули
+        private void Start()
+        {
             _rb.AddForce(transform.forward * _bulletData.InitialSpeed, ForceMode.Impulse);
-
-            // Уничтожаем пулю через заданное время жизни, если она не столкнётся с объектом
             Destroy(gameObject, _bulletData.Lifetime);
         }
 
@@ -27,7 +28,7 @@ namespace WeaponSys.Bullets
             //     enemy.TakeDamage(_bulletData.damage);
             // }
 
-          
+            Debug.Log("Ударилось");
             Destroy(gameObject);
         }
     }
