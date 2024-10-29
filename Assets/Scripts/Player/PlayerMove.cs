@@ -42,19 +42,10 @@ namespace Player
         private void Move()
         {
             var axis = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            if (axis.sqrMagnitude > 0.01f)
-            {
-                _direction = transform.forward * axis.y + transform.right * axis.x + (-transform.up * _gravity);
-                _direction.Normalize();
-                _rigidbody.velocity = _direction * _moveSpeed;
-                _animator.SetFloat("Velocity", _rigidbody.velocity.magnitude/_moveSpeed);
-            }
-            else
-            {
-                _rigidbody.velocity =Vector3.zero;
-            }
-            
-           
+            _direction = transform.forward * axis.y + transform.right * axis.x;
+            _direction.Normalize();
+            _rigidbody.velocity = _direction * _moveSpeed;
+            _animator.SetFloat("Velocity", axis.magnitude);
         }
     }
 }
