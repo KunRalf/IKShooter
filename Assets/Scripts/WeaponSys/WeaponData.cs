@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
+using WeaponSys.WeaponTypes;
 
 namespace WeaponSys
 {
     [CreateAssetMenu(fileName = "New weapon", menuName = "Weapons/Weapon Data")]
     public class WeaponData : ScriptableObject
     {
-        [field:Header("General Weapon Stats")]
+        [field: Header("General Weapon Stats")] 
+        [field: SerializeField] public WeaponType WeaponType { get; private set; }
         [field:SerializeField] public string WeaponName { get; private set; }
         [field:SerializeField] public float FireRate { get; private set; }
         [field:SerializeField] public int MaxAmmo { get; private set; }
