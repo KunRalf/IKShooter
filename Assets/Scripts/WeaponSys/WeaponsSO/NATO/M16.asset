@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WeaponType>k__BackingField: 1
   <WeaponName>k__BackingField: M16
-  <FireRate>k__BackingField: 0.85
+  <FireRate>k__BackingField: 0.085
   <MaxAmmo>k__BackingField: 30
   <RecoilAmount>k__BackingField: 0
   <BulletSpread>k__BackingField: 0

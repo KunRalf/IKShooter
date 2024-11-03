@@ -22,9 +22,12 @@ namespace Player
         [SerializeField] private MultiAimConstraint _spineSub;
         [SerializeField] private MultiAimConstraint _head;
         [SerializeField] private MultiAimConstraint _weapon;
-        [Header("Hands")]
-        [SerializeField] private TwoBoneIKConstraint _lHand;
-        [SerializeField] private TwoBoneIKConstraint _rHand;
+
+        [Header("Hands")] 
+        [SerializeField] private Transform _lHand;
+        [SerializeField] private Transform _rHand;
+        // [SerializeField] private TwoBoneIKConstraint _lHand;
+        // [SerializeField] private TwoBoneIKConstraint _rHand;
 
         [Header("Weapons")] 
         [SerializeField] private GameObject _ak;
@@ -41,33 +44,14 @@ namespace Player
 
             _rig.Build();
         }
+        
 
-        private void Update()
+        public void SetHandsOnWeapon(Transform lHand, Transform rHand)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                _ak.SetActive(true);
-                _m16.SetActive(false);
-                _lHand.data.target = _weapons[0].LHand;
-                _rHand.data.target = _weapons[0].RHand;
-                _rig.Build();
-            } 
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                _ak.SetActive(false);
-                _m16.SetActive(true);
-                _lHand.data.target = _weapons[1].LHand;
-                _rHand.data.target = _weapons[1].RHand;
-                _rig.Build();
-            }   
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                _ak.SetActive(false);
-                _m16.SetActive(false);
-                _lHand.data.target = null;
-                _rHand.data.target = null;
-                _rig.Build();
-            }
+            _lHand.position = lHand.position;
+            _lHand.rotation = lHand.rotation;
+            _rHand.position = rHand.position;
+            _rHand.rotation = rHand.rotation;
         }
     }
 }

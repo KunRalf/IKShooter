@@ -11,6 +11,11 @@ namespace WeaponSys
         [SerializeField] protected WeaponData _weaponData;
         [SerializeField] protected Bullet _bullet;
         [SerializeField] protected Transform _shootPoint;
+
+        [field:Header("IK")]
+        [field:SerializeField] public Transform LHand { get; private set; }
+        [field:SerializeField] public Transform RHand { get; private set; }
+        
         protected float _delayToFire = 0f;
         protected int _currentAmmo;
 

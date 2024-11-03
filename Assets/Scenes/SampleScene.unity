@@ -331,6 +331,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4286684770865453799}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &204692511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 204692512}
+  m_Layer: 0
+  m_Name: refLHand (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &204692512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204692511}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.025198309, y: 0.6931641, z: 0.7196687, w: -0.031074395}
+  m_LocalPosition: {x: 0.11100006, y: -0.07119893, z: -0.70960236}
+  m_LocalScale: {x: 0.6000001, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 830249891}
+  m_LocalEulerAnglesHint: {x: -84.958, y: -64.541, z: 245.018}
 --- !u!1 &280888866
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,6 +924,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 204692512}
+  - {fileID: 1131958311}
   - {fileID: 2602474908452294311}
   - {fileID: 8742570165961227474}
   m_Father: {fileID: 3757219980573966379}
@@ -1235,6 +1268,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Weight: 1
   m_Effectors: []
+--- !u!1 &1131958310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1131958311}
+  m_Layer: 0
+  m_Name: refRHand (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1131958311
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131958310}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.02297366, y: -0.6751146, z: 0.025077071, w: 0.73692864}
+  m_LocalPosition: {x: -0.015300751, y: -0.1173389, z: -0.2923031}
+  m_LocalScale: {x: 0.6, y: 0.59999996, z: 0.6000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 830249891}
+  m_LocalEulerAnglesHint: {x: 0, y: -84.987, z: 3.898}
 --- !u!1 &1347055510
 GameObject:
   m_ObjectHideFlags: 3
@@ -2146,7 +2210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 0.2
+  m_Weight: 0.8
   m_Data:
     m_ConstrainedObject: {fileID: 5506100542092155667}
     m_SourceObjects:
@@ -2419,7 +2483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 0.2
+  m_Weight: 0.3
   m_Data:
     m_ConstrainedObject: {fileID: 5104420168609403732}
     m_SourceObjects:
@@ -13185,7 +13249,7 @@ MonoBehaviour:
     m_Root: {fileID: 5946000806260311184}
     m_Mid: {fileID: 7324672526641042335}
     m_Tip: {fileID: 5276346597298617200}
-    m_Target: {fileID: 2014245551}
+    m_Target: {fileID: 204692512}
     m_Hint: {fileID: 34700109}
     m_TargetPositionWeight: 1
     m_TargetRotationWeight: 1
@@ -18108,7 +18172,7 @@ MonoBehaviour:
     m_Root: {fileID: 829292756510530153}
     m_Mid: {fileID: 4286684770865453799}
     m_Tip: {fileID: 3155457445867622541}
-    m_Target: {fileID: 475679521}
+    m_Target: {fileID: 1131958311}
     m_Hint: {fileID: 124535664}
     m_TargetPositionWeight: 1
     m_TargetRotationWeight: 1
@@ -20944,8 +21008,8 @@ MonoBehaviour:
   _spineSub: {fileID: 944359631}
   _head: {fileID: 1857105340}
   _weapon: {fileID: 1414321105}
-  _lHand: {fileID: 5029217979879759594}
-  _rHand: {fileID: 7502010123400609823}
+  _lHand: {fileID: 204692512}
+  _rHand: {fileID: 1131958311}
   _ak: {fileID: 2934265829470049863}
   _m16: {fileID: 3679796761680946359}
   _weapons:
@@ -20970,6 +21034,7 @@ MonoBehaviour:
   _weapons:
   - {fileID: 8118937728499797196}
   - {fileID: 8742570165961227475}
+  _playerSetRig: {fileID: 8949750065237632759}
 --- !u!4 &8964710239688951452
 Transform:
   m_ObjectHideFlags: 0

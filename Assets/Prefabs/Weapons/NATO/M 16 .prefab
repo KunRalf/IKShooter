@@ -209,6 +209,8 @@ MonoBehaviour:
   _weaponData: {fileID: 11400000, guid: c2d73654379c5564e965461114eb199b, type: 2}
   _bullet: {fileID: 5095765899541043837, guid: 4ec243cb36c71dc488ea4367b716078b, type: 3}
   _shootPoint: {fileID: 2321020381803546397}
+  <LHand>k__BackingField: {fileID: 5489049314407010145}
+  <RHand>k__BackingField: {fileID: 2275298184227153325}
 --- !u!1 &1354039800812334291
 GameObject:
   m_ObjectHideFlags: 0

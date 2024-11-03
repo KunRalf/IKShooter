@@ -7,7 +7,9 @@ namespace Player
 {
     public class PlayerWeaponSystem : MonoBehaviour
     {
-        [SerializeField] private List<Weapon> _weapons;   // Массив всех видов оружия
+        [SerializeField] private List<Weapon> _weapons;
+        [SerializeField] private PlayerSetRig _playerSetRig;
+        
         private int currentWeaponIndex = 0;
 
         private void Start()
@@ -17,18 +19,18 @@ namespace Player
 
         private void Update()
         {
-            if (Input.GetAxis("Mouse ScrollWheel") > 0)
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 currentWeaponIndex = (currentWeaponIndex + 1) % _weapons.Count;
                 EquipWeapon(currentWeaponIndex);
             }
-            else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            else if (Input.GetKeyDown(KeyCode.E))
             {
                 currentWeaponIndex = (currentWeaponIndex - 1 + _weapons.Count) % _weapons.Count;
                 EquipWeapon(currentWeaponIndex);
             }
 
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButton("Fire1"))
             {
                 _weapons[currentWeaponIndex].Shoot();
             }
@@ -44,6 +46,8 @@ namespace Player
             for (int i = 0; i < _weapons.Count; i++)
             {
                 _weapons[i].gameObject.SetActive(i == index);
+                if(i == index)
+                    _playerSetRig.SetHandsOnWeapon(_weapons[i].LHand,_weapons[i].RHand);
             }
         }
     }
