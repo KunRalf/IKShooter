@@ -11,7 +11,7 @@ namespace WeaponSys
         [SerializeField] protected WeaponData _weaponData;
         [SerializeField] protected Bullet _bullet;
         [SerializeField] protected Transform _shootPoint;
-
+        [SerializeField] protected WeaponRecoil _recoil;
         [field:Header("IK")]
         [field:SerializeField] public Transform LHand { get; private set; }
         [field:SerializeField] public Transform RHand { get; private set; }
@@ -22,6 +22,7 @@ namespace WeaponSys
         protected virtual void Start()
         {
             _currentAmmo = _weaponData.MaxAmmo;
+            
         }
 
         public abstract void Shoot();

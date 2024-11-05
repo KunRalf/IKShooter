@@ -10,6 +10,7 @@ namespace WeaponSys.WeaponTypes
             if (!CanShoot()) return;
             Bullet bullet = Instantiate(_bullet, _shootPoint.position, _shootPoint.rotation);
             _currentAmmo--;
+            _recoil.GenerateRecoil();
             UpdateFireCooldown();
         }
 

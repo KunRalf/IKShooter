@@ -30,15 +30,15 @@ namespace Player
                 EquipWeapon(currentWeaponIndex);
             }
 
-            if (Input.GetButton("Fire1"))
+            if (Input.GetKey(KeyCode.Mouse0))
             {
                 _weapons[currentWeaponIndex].Shoot();
             }
 
-            // if (Input.GetButtonDown("Reload"))
-            // {
-            //     _weapons[currentWeaponIndex].Reload();
-            // }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                _weapons[currentWeaponIndex].Reload();
+            }
         }
 
         private void EquipWeapon(int index)

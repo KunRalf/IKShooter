@@ -738,6 +738,7 @@ GameObject:
   - component: {fileID: 940713336433269735}
   - component: {fileID: 2668556196460748923}
   - component: {fileID: 6455311481344318509}
+  - component: {fileID: -8248524841786325465}
   m_Layer: 0
   m_Name: AK 47
   m_TagString: Untagged
@@ -839,8 +840,24 @@ MonoBehaviour:
   _bullet: {fileID: -1617863395210873638, guid: 8e55e4049409c1b4ba9a7c86cb02a6e0,
     type: 3}
   _shootPoint: {fileID: 8104430537259810639}
+  _recoil: {fileID: -8248524841786325465}
   <LHand>k__BackingField: {fileID: 394372026016795617}
   <RHand>k__BackingField: {fileID: 4486941797887469015}
+--- !u!114 &-8248524841786325465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7714735394106882639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b339e2bef9c8064fae58e9288d072e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _verticalRecoil: {x: 4, y: 10}
+  _horizontalRecoil: {x: 4, y: 4}
+  _duration: 0.1
 --- !u!1 &8820191047502420863
 GameObject:
   m_ObjectHideFlags: 0
