@@ -1,4 +1,5 @@
-﻿using Mirror;
+﻿using System;
+using Mirror;
 using UnityEngine;
 
 namespace Player
@@ -6,18 +7,16 @@ namespace Player
     public class PlayerHealth : NetworkBehaviour
     {
         [SyncVar(hook = nameof(OnHealthChanged))]
-        private int currentHealth;
+        private float _currentHealth;
 
         [SyncVar(hook = nameof(OnArmorChanged))]
-        private int currentArmor;
+        private float _currentArmor;
 
-        [SyncVar] private int maxHealth;
-        [SyncVar] private int maxArmor;
-
-        public delegate void HealthChanged(int newHealth);
-        public event HealthChanged OnHealthChangedEvent;
-        public delegate void ArmorChanged(int newArmor);
-        public event ArmorChanged OnArmorChangedEvent;
+        [SyncVar] private float _maxHealth;
+        [SyncVar] private float _maxArmor;
+        
+        public event Action<float> OnHealthChangedEvent;
+        public event Action<float> OnArmorChangedEvent;
 
         public override void OnStartServer()
         {
@@ -25,57 +24,57 @@ namespace Player
         }
 
         [Server]
-        public void SetHeroStats(int health, int armor)
+        public void SetHeroStats(float health, float armor)
         {
-            maxHealth = health;
-            maxArmor = armor;
-            currentHealth = maxHealth;
-            currentArmor = maxArmor;
+            _maxHealth = health;
+            _maxArmor = armor;
+            _currentHealth = _maxHealth;
+            _currentArmor = _maxArmor;
         }
 
         [Server]
         public void TakeDamage(int amount)
         {
-            if (currentHealth <= 0) return;
+            if (_currentHealth <= 0) return;
 
-            int damageToHealth = amount;
+            float damageToHealth = amount;
 
-            if (currentArmor > 0)
+            if (_currentArmor > 0)
             {
-                int damageToArmor = Mathf.Min(currentArmor, amount);
-                currentArmor -= damageToArmor;
+                float damageToArmor = Mathf.Min(_currentArmor, amount);
+                _currentArmor -= damageToArmor;
                 damageToHealth -= damageToArmor;
             }
 
-            currentHealth -= damageToHealth;
+            _currentHealth -= damageToHealth;
 
-            if (currentHealth <= 0)
+            if (_currentHealth <= 0)
             {
-                currentHealth = 0;
+                _currentHealth = 0;
                 RpcHandleDeath();
             }
         }
 
-        private void OnHealthChanged(int oldHealth, int newHealth)
+        private void OnHealthChanged(float o, float n)
         {
-            OnHealthChangedEvent?.Invoke(newHealth);
+            OnHealthChangedEvent?.Invoke(n);
         }
 
-        private void OnArmorChanged(int oldArmor, int newArmor)
+        private void OnArmorChanged(float o, float n)
         {
-            OnArmorChangedEvent?.Invoke(newArmor);
-        }
-
-        [Server]
-        public void HealArmor(int amount)
-        {
-            currentArmor = Mathf.Min(currentArmor + amount, maxArmor);
+            OnArmorChangedEvent?.Invoke(n);
         }
 
         [Server]
-        public void HealHealth(int amount)
+        public void HealArmor(float amount)
         {
-            currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+            _currentArmor = Mathf.Min(_currentArmor + amount, _maxArmor);
+        }
+
+        [Server]
+        public void HealHealth(float amount)
+        {
+            _currentHealth = Mathf.Min(_currentHealth + amount, _maxHealth);
         }
 
         [ClientRpc]

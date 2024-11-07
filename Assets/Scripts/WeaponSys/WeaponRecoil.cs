@@ -1,6 +1,5 @@
 ﻿using System;
 using Cinemachine;
-using DefaultNamespace;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -19,7 +18,7 @@ namespace WeaponSys
         private void Awake()
         {
             var mainCam = Camera.main;
-            _cam = mainCam.gameObject.GetComponent<SceneCameras>().PlayerCamera;
+            // _cam = mainCam.gameObject.GetComponent<SceneCameras>().PlayerCamera;
         }
         
         public void GenerateRecoil()
@@ -29,6 +28,7 @@ namespace WeaponSys
 
         private void Update()
         {
+            return;
             if (_time > 0)
             {
                 _cam.m_YAxis.Value -= ((Random.Range(-_verticalRecoil.x, _verticalRecoil.y) / 1000) * Time.deltaTime) / _duration;

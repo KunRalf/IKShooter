@@ -1,9 +1,10 @@
 ﻿using System;
+using Mirror;
 using UnityEngine;
 
 namespace Player
 {
-    public class PlayerMove : MonoBehaviour
+    public class PlayerMove : NetworkBehaviour
     {
         [SerializeField] private float _moveSpeed = 2f; 
 
@@ -26,6 +27,7 @@ namespace Player
         
         private void FixedUpdate()
         {
+            if(!isOwned) return;
             Move();
         }
 
