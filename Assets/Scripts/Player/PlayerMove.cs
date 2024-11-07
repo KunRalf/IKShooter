@@ -5,8 +5,7 @@ namespace Player
 {
     public class PlayerMove : MonoBehaviour
     {
-        [SerializeField] private float _moveSpeed = 2f; // Скорость движения игрока
-        [SerializeField] private float _rotateSpeed = 0.1f; // Скорость движения игрока
+        [SerializeField] private float _moveSpeed = 2f; 
 
         [SerializeField] private Transform _groundCheck;
         [SerializeField] private float _radiusCheckGround;
@@ -21,12 +20,8 @@ namespace Player
 
         private void Start()
         {
-            // _playerAnimator = GetComponent<PlayerAnimator>();
             _rigidbody = GetComponent<Rigidbody>();
             _animator = GetComponent<Animator>();
-            // для тестовой сцены
-            //  _camera.GetComponent<MainCameraScript>().InitTestScene(this.transform);
-            
         }
         
         private void FixedUpdate()
