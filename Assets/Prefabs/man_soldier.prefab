@@ -449,7 +449,6 @@ MonoBehaviour:
   _target: {fileID: 0}
   _aimLook: {fileID: 2655741584941760203, guid: 4a7be1adf68d62b4eb2e2cd9332dbacd,
     type: 3}
-  _cinemachineFreeLook: {fileID: 6457753651665274657}
   _spineMain: {fileID: 7245517896414549841}
   _spineSub: {fileID: 6878286263374097617}
   _head: {fileID: 351528844782993905}
