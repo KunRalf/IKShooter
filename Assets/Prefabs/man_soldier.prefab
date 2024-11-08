@@ -361,7 +361,9 @@ MonoBehaviour:
   _playerMove: {fileID: 9027448829426008437}
   _playerWeaponSystem: {fileID: 5269562016685535675}
   _playerAiming: {fileID: 7978983506886354477}
+  _playerSetRig: {fileID: 1922106385043788479}
   _playerUI: {fileID: 945616818068195853}
+  _aimLook: {fileID: 0}
   _camera: {fileID: 8191918298940196037}
 --- !u!114 &9027448829426008437
 MonoBehaviour:
@@ -447,6 +449,7 @@ MonoBehaviour:
   syncInterval: 0
   _rig: {fileID: 9084110242511651344}
   _target: {fileID: 0}
+  _targetId: 0
   _aimLook: {fileID: 2655741584941760203, guid: 4a7be1adf68d62b4eb2e2cd9332dbacd,
     type: 3}
   _spineMain: {fileID: 7245517896414549841}

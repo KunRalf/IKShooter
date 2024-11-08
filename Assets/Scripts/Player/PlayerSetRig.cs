@@ -47,6 +47,11 @@ namespace Player
             CmdCreateAimLook();
         }
 
+        public void Init(GameObject aimLook)
+        {
+            _target = aimLook;
+        }
+
         [Command]
         private void CmdCreateAimLook()
         {

@@ -131,9 +131,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 909850977}
-  - component: {fileID: 909850976}
-  - component: {fileID: 909850975}
+  - component: {fileID: 909850979}
   - component: {fileID: 909850974}
+  - component: {fileID: 909850978}
   m_Layer: 0
   m_Name: Network
   m_TagString: Untagged
@@ -170,7 +170,22 @@ MonoBehaviour:
   debugLog: 0
   statisticsGUI: 0
   statisticsLog: 0
---- !u!114 &909850975
+--- !u!4 &909850977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909850973}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 34.36367, y: 0.61530936, z: 27.772568}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &909850978
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,7 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offsetX: 0
   offsetY: 0
---- !u!114 &909850976
+--- !u!114 &909850979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,7 +208,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 909850973}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aab4c8111b7c411b9b92cf3dbc5bd4e, type: 3}
+  m_Script: {fileID: 11500000, guid: d69742f2b6d949bfb7957d64de898090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
@@ -202,7 +217,7 @@ MonoBehaviour:
   editorAutoStart: 0
   sendRate: 60
   offlineScene: Assets/Scenes/Offline.unity
-  onlineScene: Assets/Scenes/GameScene.unity
+  onlineScene: Assets/Scenes/Lobby.unity
   offlineSceneLoadDelay: 0
   transport: {fileID: 909850974}
   networkAddress: localhost
@@ -215,6 +230,8 @@ MonoBehaviour:
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs:
+  - {fileID: 62770756432617541, guid: 06c890482936bc041a5972d14de2bf55, type: 3}
+  - {fileID: 7119438920282718856, guid: a28761b25965bd244a7aaeb1ebe545e0, type: 3}
   - {fileID: 2655741584941760203, guid: 4a7be1adf68d62b4eb2e2cd9332dbacd, type: 3}
   exceptionsDisconnect: 1
   snapshotSettings:
@@ -231,21 +248,17 @@ MonoBehaviour:
   evaluationMethod: 0
   evaluationInterval: 3
   timeInterpolationGui: 0
---- !u!4 &909850977
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909850973}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.36367, y: 0.61530936, z: 27.772568}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  showRoomGUI: 1
+  minPlayers: 1
+  roomPlayerPrefab: {fileID: 5733934059971150685, guid: a28761b25965bd244a7aaeb1ebe545e0,
+    type: 3}
+  RoomScene: Assets/Scenes/Lobby.unity
+  GameplayScene: Assets/Scenes/GameScene.unity
+  _allPlayersReady: 0
+  clientIndex: 0
+  CountPlayersToStart: 0
+  _aimLook: {fileID: 2655741584941760203, guid: 4a7be1adf68d62b4eb2e2cd9332dbacd,
+    type: 3}
 --- !u!1 &1578915341
 GameObject:
   m_ObjectHideFlags: 0
