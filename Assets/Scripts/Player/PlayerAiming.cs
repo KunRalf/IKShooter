@@ -25,10 +25,21 @@ namespace Player
         private void FixedUpdate()
         {
             if(!isOwned) return;
+            ChangeVisableCursor();
             float yawCamera = _cam.transform.rotation.eulerAngles.y;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, yawCamera,0), _turnSpeed * Time.fixedDeltaTime);
         }
 
+        private void ChangeVisableCursor()
+        {
+            if(!isOwned) return;
+            if (Input.GetKeyUp(KeyCode.M))
+            {
+                Cursor.lockState = Cursor.lockState == CursorLockMode.Locked ? CursorLockMode.None : CursorLockMode.Locked;
+                Cursor.visible = Cursor.lockState != CursorLockMode.Locked;
+            }
+        }
+        
         private void Update()
         {
             if(!isOwned) return;

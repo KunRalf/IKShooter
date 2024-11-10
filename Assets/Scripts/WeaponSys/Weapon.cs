@@ -1,11 +1,12 @@
 ﻿using System;
+using Mirror;
 using UnityEngine;
 using WeaponSys.Bullets;
 using WeaponSys.WeaponTypes;
 
 namespace WeaponSys
 {
-    public abstract class Weapon : MonoBehaviour
+    public abstract class Weapon : NetworkBehaviour
     {
         [SerializeField] private WeaponType _weaponType;
         [SerializeField] protected WeaponData _weaponData;
@@ -25,6 +26,7 @@ namespace WeaponSys
             
         }
 
+       
         public abstract void Shoot();
 
         protected bool CanShoot()

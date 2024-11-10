@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 using UnityEngine.Serialization;
 using WeaponSys;
 
 namespace Player
 {
-    public class PlayerWeaponSystem : MonoBehaviour
+    public class PlayerWeaponSystem : NetworkBehaviour
     {
         [SerializeField] private List<Weapon> _weapons;
         [SerializeField] private PlayerSetRig _playerSetRig;
@@ -32,7 +33,7 @@ namespace Player
 
             if (Input.GetKey(KeyCode.Mouse0))
             {
-                _weapons[currentWeaponIndex].Shoot();
+                CmdShoot();
             }
 
             if (Input.GetKeyDown(KeyCode.R))
@@ -41,6 +42,12 @@ namespace Player
             }
         }
 
+        [Command]
+        private void CmdShoot()
+        {
+            _weapons[currentWeaponIndex].Shoot();
+        }
+        
         private void EquipWeapon(int index)
         {
             for (int i = 0; i < _weapons.Count; i++)

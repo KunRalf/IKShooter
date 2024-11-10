@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: "5,56\xD745"
   m_EditorClassIdentifier: 
   <Damage>k__BackingField: 15
-  <InitialSpeed>k__BackingField: 930
+  <InitialSpeed>k__BackingField: 20
   <Lifetime>k__BackingField: 2

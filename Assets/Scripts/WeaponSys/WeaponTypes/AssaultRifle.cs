@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Mirror;
+using UnityEngine;
 using WeaponSys.Bullets;
 
 namespace WeaponSys.WeaponTypes
@@ -9,6 +10,7 @@ namespace WeaponSys.WeaponTypes
         {
             if (!CanShoot()) return;
             Bullet bullet = Instantiate(_bullet, _shootPoint.position, _shootPoint.rotation);
+            NetworkServer.Spawn(bullet.gameObject, connectionToClient);
             _currentAmmo--;
             _recoil.GenerateRecoil();
             UpdateFireCooldown();

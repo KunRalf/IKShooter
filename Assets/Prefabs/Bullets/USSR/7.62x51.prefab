@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -1617863395210873638}
   - component: {fileID: -1182053012328901735}
   - component: {fileID: 3072045840107970336}
+  - component: {fileID: 1360379178726931978}
   m_Layer: 0
   m_Name: 7.62x51
   m_TagString: Untagged
@@ -102,7 +103,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -120,6 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0e9be9489494ad6934ab7ba28cd2cba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   _bulletData: {fileID: 11400000, guid: 56989cba017cb4b43914b388561c5e19, type: 2}
 --- !u!114 &-1182053012328901735
 MonoBehaviour:
@@ -160,3 +164,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &1360379178726931978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3725278115075944613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  _assetId: 691791996
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0

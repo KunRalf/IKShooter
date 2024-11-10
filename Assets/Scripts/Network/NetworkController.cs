@@ -6,7 +6,6 @@ using Mirror;
 using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using PlayerInfo = Mirror.Examples.MultipleMatch.PlayerInfo;
 
 
 namespace Network
@@ -17,6 +16,7 @@ namespace Network
         [SerializeField] private int CountPlayersToStart;
        // [SerializeField] private NetworkUI _networkUI;
        [SerializeField] private GameObject _aimLook;
+
       //  private static List<MyStartPoint> _myStartPositions = new List<MyStartPoint>();
         // [SerializeField] private PlayerInfo _playerInfo;
         // [SerializeField] private GamePlayerInfo _gamePlayerInfo;

@@ -14,15 +14,14 @@ namespace Player
 
         [SyncVar] private float _maxHealth;
         [SyncVar] private float _maxArmor;
+
+        public float MaxHealth => _maxHealth;
+        public float MaxArmor => _maxArmor;
         
         public event Action<float> OnHealthChangedEvent;
         public event Action<float> OnArmorChangedEvent;
 
-        public override void OnStartServer()
-        {
-       
-        }
-
+     
         [Server]
         public void SetHeroStats(float health, float armor)
         {
@@ -33,7 +32,7 @@ namespace Player
         }
 
         [Server]
-        public void TakeDamage(int amount)
+        public void TakeDamage(float amount)
         {
             if (_currentHealth <= 0) return;
 
