@@ -35,6 +35,7 @@ namespace Player
         {
             _aimLook = aimLook;
             _playerSetRig.Init(_aimLook);
+            _playerWeaponSystem._weapon.Init(aimLook);
             _playerHealth.SetHeroStats(100,100);
            
         }

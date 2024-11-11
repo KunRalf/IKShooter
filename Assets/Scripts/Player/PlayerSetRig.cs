@@ -38,28 +38,12 @@ namespace Player
         [SerializeField] private GameObject _ak;
         [SerializeField] private GameObject _m16;
         [SerializeField] private List<WeaponToRig> _weapons;
-
-        public override void OnStartClient()
-        {
-            Debug.Log(_targetId);
-            base.OnStartClient();
-            if (!isOwned)return;
-            CmdCreateAimLook();
-        }
+        
 
         public void Init(GameObject aimLook)
         {
             _target = aimLook;
         }
-
-        [Command]
-        private void CmdCreateAimLook()
-        {
-            var aimLook = Instantiate(_aimLook);
-            
-            NetworkServer.Spawn(aimLook, connectionToClient);
-            RPCSetTarget(aimLook.GetComponent<NetworkIdentity>().netId);
-        }  
         
         private void SetAimRig(GameObject o, GameObject n)
         {
@@ -82,12 +66,6 @@ namespace Player
             // _rig.Build();
        
         }
-
-        [ClientRpc]
-        private void RPCSetTarget(uint id)
-        {
-            _targetId =id;
-        }
         
         private void Update()
         {
@@ -98,7 +76,7 @@ namespace Player
             Ray ray = Camera.main.ScreenPointToRay(screenPoint);
 
             // Определяем дистанцию для точки в 3D-пространстве, например, 10 единиц вперед
-            float distance = 10f;
+            float distance = 1000f;
 
             // Обновляем позицию TargetPoint на этой линии
             _target.transform.position = ray.origin + ray.direction * distance;
