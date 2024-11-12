@@ -64,6 +64,13 @@ namespace Player
         private void CmdShoot()
         {
             weaponExample.Shoot();
+            RPCEffects();
+        }
+
+        [ClientRpc]
+        private void RPCEffects()
+        {
+            weaponExample.Effects();
         }
         
         // private void EquipWeapon(int index)

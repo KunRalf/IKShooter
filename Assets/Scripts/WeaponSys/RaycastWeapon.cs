@@ -24,5 +24,13 @@ namespace WeaponSys
         }
 
         public abstract void Shoot();
+
+        public void Effects()
+        {
+            foreach (var muzzle in _muzzleFlash)
+            {
+                muzzle.Emit(1);
+            }
+        }
     }
 }
