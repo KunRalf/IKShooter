@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4061367733968216328}
   - component: {fileID: -7813312454008364582}
   - component: {fileID: 3778352489485266288}
+  - component: {fileID: 1841864134848052728}
   m_Layer: 0
   m_Name: Bullet_Tracer
   m_TagString: Untagged
@@ -188,3 +189,22 @@ MonoBehaviour:
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &1841864134848052728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6943925607905103803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c227e16ce4bf01047b88a6f1a8e06867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  _tracer: {fileID: 4061367733968216328}
+  _bulletDrop: 10
+  _bulletSpeed: 20
+  _hitEffect: []

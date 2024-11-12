@@ -9,7 +9,7 @@ namespace Player
     public class PlayerWeaponSystem : NetworkBehaviour
     {
         // [SerializeField] private List<Weapon> _weapons;
-        [SerializeField] public RaycastWeapon _weapon;
+        [FormerlySerializedAs("_weapon"),SerializeField] public RaycastWeapon weaponExample;
         [SerializeField] private PlayerSetRig _playerSetRig;
         
         private int currentWeaponIndex = 0;
@@ -28,13 +28,13 @@ namespace Player
                 }
                 if(Input.GetKeyUp(KeyCode.Mouse0))
                 {
-                    _weapon.StopFireing();
+                    // weaponExample.StopFireing();
                 }
-                if(_weapon.IsFireing)
-                {
-                    _weapon.UpdateFireing(Time.deltaTime);
-                }
-                _weapon.UpdateBullets(Time.deltaTime);
+                // if(_weapon.IsFireing)
+                // {
+                //     _weapon.UpdateFireing(Time.deltaTime);
+                // }
+                 // weaponExample.UpdateBullets(Time.deltaTime);
             
             
             
@@ -63,7 +63,7 @@ namespace Player
         [Command]
         private void CmdShoot()
         {
-            _weapon.StartFireing();
+            weaponExample.Shoot();
         }
         
         // private void EquipWeapon(int index)

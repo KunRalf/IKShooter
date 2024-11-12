@@ -433,7 +433,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  _weapon: {fileID: 320451025054170424}
+  weaponExample: {fileID: 4101055601884055226}
   _playerSetRig: {fileID: 1922106385043788479}
 --- !u!114 &1922106385043788479
 MonoBehaviour:
@@ -9537,6 +9537,7 @@ GameObject:
   - component: {fileID: 1093588500140828224}
   - component: {fileID: 6575168863867550794}
   - component: {fileID: 320451025054170424}
+  - component: {fileID: 4101055601884055226}
   m_Layer: 0
   m_Name: AK 47
   m_TagString: Untagged
@@ -9674,18 +9675,40 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  recoil: {fileID: 0}
-  muzzleFlash: []
-  hitEffect: []
-  tracerEffect: {fileID: 4061367733968216328, guid: 19bb2a88a4a1ade44bc91b51eb70a636,
+  _recoil: {fileID: 6575168863867550794}
+  _muzzleFlash: []
+  _hitEffect: []
+  _tracerEffect: {fileID: 4061367733968216328, guid: 19bb2a88a4a1ade44bc91b51eb70a636,
     type: 3}
-  isFireing: 0
-  raycastOrigin: {fileID: 2792323883694097698}
+  IsFireing: 0
+  _raycastOrigin: {fileID: 2792323883694097698}
   _aimlookT: {fileID: 0}
-  fireRate: 0
-  bulletSpeed: 1000
-  bulletDrop: 0
-  capsuleInstantiatePosition: {fileID: 8874574594848406729}
+  _fireRate: 0
+  _bulletSpeed: 20
+  _bulletDrop: 10
+  _capsuleInstantiatePosition: {fileID: 8874574594848406729}
+--- !u!114 &4101055601884055226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4443035856457973794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0338aa107b0791e4dab741cd96eca973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  _weaponRecoil: {fileID: 6575168863867550794}
+  _muzzleFlash: []
+  _tracerEffect: {fileID: 1841864134848052728, guid: 19bb2a88a4a1ade44bc91b51eb70a636,
+    type: 3}
+  _raycastOrigin: {fileID: 2792323883694097698}
+  _aimlookT: {fileID: 0}
+  _fireRate: 0
 --- !u!1 &4494301412357482360
 GameObject:
   m_ObjectHideFlags: 0
