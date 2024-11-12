@@ -16,7 +16,7 @@ namespace Player
         [SyncVar(hook = nameof(AimRig)),Range(0f, 1f)] private float _armsAim;
         
         private Camera _cam;
-
+        
         private void Awake()
         {
             _cam = Camera.main;
@@ -43,7 +43,7 @@ namespace Player
         private void Update()
         {
             if(!isOwned) return;
-            if (Input.GetMouseButton(1))
+            if (Input.GetKey(KeyCode.Mouse1))
             {
                 CmdChangeAimingRig(Time.deltaTime / _aimDuration);
             }
@@ -51,7 +51,11 @@ namespace Player
             {
                 CmdChangeAimingRig(-Time.deltaTime / _aimDuration);
             }
-            
+
+            if (Input.GetKeyUp(KeyCode.Mouse1))
+            {
+                // reset weapon pos
+            }
         }
 
         [Command]

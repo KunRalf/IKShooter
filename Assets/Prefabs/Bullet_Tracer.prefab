@@ -206,5 +206,5 @@ MonoBehaviour:
   syncInterval: 0
   _tracer: {fileID: 4061367733968216328}
   _bulletDrop: 10
-  _bulletSpeed: 20
+  _bulletSpeed: 750
   _hitEffect: []

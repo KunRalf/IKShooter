@@ -76,7 +76,7 @@ namespace Player
             Ray ray = Camera.main.ScreenPointToRay(screenPoint);
 
             // Определяем дистанцию для точки в 3D-пространстве, например, 10 единиц вперед
-            float distance = 1000f;
+            float distance = 20f;
 
             // Обновляем позицию TargetPoint на этой линии
             _target.transform.position = ray.origin + ray.direction * distance;

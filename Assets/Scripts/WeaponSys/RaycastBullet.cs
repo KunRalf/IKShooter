@@ -77,6 +77,8 @@ namespace WeaponSys
                 {
                     _hitInfo.transform.GetComponent<PlayerHealth>().TakeDamage(15);
                 }
+
+                DestroySelf();
             }
             else
             {

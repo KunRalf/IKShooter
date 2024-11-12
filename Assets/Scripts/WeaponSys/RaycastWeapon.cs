@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace WeaponSys
 {
@@ -9,20 +10,17 @@ namespace WeaponSys
         [SerializeField] protected WeaponRecoil _weaponRecoil;
         [SerializeField] protected List<ParticleSystem> _muzzleFlash;
        
-        [SerializeField] protected RaycastBullet _tracerEffect;
+        [SerializeField] protected RaycastBullet _bullet;
         [SerializeField] protected Transform _raycastOrigin;
-        [SyncVar(hook = nameof(SetLook))] protected GameObject _aimLooGO;
-        [SerializeField] protected Transform _aimlookT;
+        [SerializeField][SyncVar] protected Transform _aimlook;
         [SerializeField] protected float _fireRate;
+        [field:Header("IK")]
+        [field:SerializeField] public Transform LHand { get; private set; }
+        [field:SerializeField] public Transform RHand { get; private set; }
 
         public void Init(GameObject aimLook)
         {
-            _aimLooGO = aimLook;
-        }
-        
-        private void SetLook(GameObject o, GameObject n)
-        {
-            _aimlookT = n.transform;
+            _aimlook = aimLook.transform;
         }
 
         public abstract void Shoot();
