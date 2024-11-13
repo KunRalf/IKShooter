@@ -32355,7 +32355,7 @@ MonoBehaviour:
     m_ConstrainedAxes:
       x: 1
       y: 1
-      z: 1
+      z: 0
 --- !u!114 &6754359951761267588
 MonoBehaviour:
   m_ObjectHideFlags: 0
