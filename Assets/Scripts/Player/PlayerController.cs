@@ -1,6 +1,7 @@
 ﻿using Mirror;
 using UnityEngine;
 using UnityEngine.Serialization;
+using WeaponSys;
 
 namespace Player
 {
@@ -35,7 +36,7 @@ namespace Player
         {
             _aimLook = aimLook;
             _playerSetRig.Init(_aimLook);
-            _playerWeaponSystem.weaponExample.Init(aimLook);
+            _playerWeaponSystem.weaponExample.Init(aimLook.GetComponent<LookAtTarget>());
             _playerHealth.SetHeroStats(100,100);
            
         }

@@ -12,15 +12,15 @@ namespace WeaponSys
        
         [SerializeField] protected RaycastBullet _bullet;
         [SerializeField] protected Transform _raycastOrigin;
-        [SerializeField][SyncVar] protected Transform _aimlook;
+        [SerializeField][SyncVar] protected LookAtTarget _aimlook;
         [SerializeField] protected float _fireRate;
         [field:Header("IK")]
         [field:SerializeField] public Transform LHand { get; private set; }
         [field:SerializeField] public Transform RHand { get; private set; }
 
-        public void Init(GameObject aimLook)
+        public void Init(LookAtTarget aimLook)
         {
-            _aimlook = aimLook.transform;
+            _aimlook = aimLook;
         }
 
         public abstract void Shoot();
