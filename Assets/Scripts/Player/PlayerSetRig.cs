@@ -4,6 +4,7 @@ using Mirror;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.Rendering;
+using WeaponSys;
 using Random = UnityEngine.Random;
 
 namespace Player
@@ -19,8 +20,7 @@ namespace Player
     public class PlayerSetRig : NetworkBehaviour
     {
         [SerializeField] private RigBuilder _rig;
-        [SyncVar(hook = nameof(SetAimRig))][SerializeField] private GameObject _target;
-        [SyncVar(hook = nameof(SetAim))][SerializeField] private uint _targetId;
+        [SyncVar(hook = nameof(SetAimRig))][SerializeField] private LookAtTarget _target;
         [SerializeField] private GameObject _aimLook;
         [Header("BodyAim")] 
         [SerializeField] private MultiAimConstraint _spineMain;
@@ -38,14 +38,13 @@ namespace Player
         [SerializeField] private GameObject _ak;
         [SerializeField] private GameObject _m16;
         [SerializeField] private List<WeaponToRig> _weapons;
-        
 
         public void Init(GameObject aimLook)
         {
-            _target = aimLook;
+            _target = aimLook.GetComponent<LookAtTarget>();
         }
         
-        private void SetAimRig(GameObject o, GameObject n)
+        private void SetAimRig(LookAtTarget o, LookAtTarget n)
         {
             var newSourceArray = new WeightedTransformArray { new WeightedTransform(_target.transform, 1f) };
             _spineMain.data.sourceObjects = newSourceArray;
@@ -55,31 +54,17 @@ namespace Player
             
             _rig.Build();
         }  
-        private void SetAim(uint o, uint n)
-        {
-            // var newSourceArray = new WeightedTransformArray { new WeightedTransform(_target.transform, 1f) };
-            // _spineMain.data.sourceObjects = newSourceArray;
-            // _spineSub.data.sourceObjects = newSourceArray;
-            // _head.data.sourceObjects = newSourceArray;
-            // _weapon.data.sourceObjects = newSourceArray;
-            //
-            // _rig.Build();
-       
-        }
         
         private void Update()
         {
             if (!isOwned) return;
-            if(_target == null) return;
-            Vector2 screenPoint = new Vector2(Screen.width / 2, Screen.height / 2);
-            // Определяем позицию прицела в 3D-пространстве
-            Ray ray = Camera.main.ScreenPointToRay(screenPoint);
-
-            // Определяем дистанцию для точки в 3D-пространстве, например, 10 единиц вперед
-            float distance = 20f;
-
-            // Обновляем позицию TargetPoint на этой линии
-            _target.transform.position = ray.origin + ray.direction * distance;
+            _target.UpdatePos(Camera.main);
+            _target.UpdateShootingPos(Camera.main);
+            // if(_target == null) return;
+            // Vector2 screenPoint = new Vector2(Screen.width / 2, Screen.height / 2);
+            // Ray ray = Camera.main.ScreenPointToRay(screenPoint);
+            // float distance = 20f;
+            // _target.transform.position = ray.origin + ray.direction * distance;
         }
 
         public void SetHandsOnWeapon(Transform lHand, Transform rHand)
