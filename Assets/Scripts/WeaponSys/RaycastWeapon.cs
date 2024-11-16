@@ -12,15 +12,15 @@ namespace WeaponSys
        
         [SerializeField] protected RaycastBullet _bullet;
         [SerializeField] protected Transform _raycastOrigin;
-        [SerializeField][SyncVar] protected LookAtTarget _aimlook;
+        [SerializeField][SyncVar] protected Transform _aimlook;
         [SerializeField] protected float _fireRate;
         [field:Header("IK")]
         [field:SerializeField] public Transform LHand { get; private set; }
         [field:SerializeField] public Transform RHand { get; private set; }
 
-        public void Init(LookAtTarget aimLook)
+        public void Init(GameObject aimLook)
         {
-            _aimlook = aimLook;
+            _aimlook = aimLook.transform;
         }
 
         public abstract void Shoot();
@@ -30,7 +30,6 @@ namespace WeaponSys
             foreach (var muzzle in _muzzleFlash)
             {
                 muzzle.Emit(1);
-                var a = 1;
             }
         }
     }
