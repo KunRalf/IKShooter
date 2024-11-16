@@ -31,13 +31,13 @@ namespace WeaponSys
         
         private void DestroyBullet()
         {
-             Invoke(nameof(DestroySelf), _maxLifeTime);
+             Invoke(nameof(DestroySelf), _tracer.time);
         }
         
         [Server]
         private void DestroySelf()
         {
-            // NetworkServer.Destroy(gameObject);
+             // NetworkServer.Destroy(gameObject);
         }
         private void SimulateBullet(float deltaTime)
         {
@@ -45,6 +45,7 @@ namespace WeaponSys
             _timeBullet += deltaTime;
             Vector3 p1 = GetPosition(this);
             RaycastSegment(p0, p1);
+            RpcUpdateTracer(p1);
         }
         
         private Vector3 GetPosition(RaycastBullet bullet)
@@ -64,12 +65,12 @@ namespace WeaponSys
             if (Physics.Raycast(_ray, out _hitInfo, distance))
             {
 
-                ShowHitEffect();
+                
                 if(_hitInfo.transform.GetComponent<PlayerHealth>() != null)
                 {
                     _hitInfo.transform.GetComponent<PlayerHealth>().TakeDamage(15);
                 }
-
+                ShowHitEffect(_hitInfo.point, _hitInfo.normal);
                 DestroySelf();
             }
             else
@@ -80,13 +81,20 @@ namespace WeaponSys
         }
 
         [ClientRpc]
-        private void ShowHitEffect()
+        private void RpcUpdateTracer(Vector3 newPosition)
         {
-            _hitEffect.transform.position = _hitInfo.point;
-            _hitEffect.transform.forward = _hitInfo.normal;
-            _hitEffect.Emit(1);
+            if (_tracer != null)
+                _tracer.transform.position = newPosition;
         }
         
+        [ClientRpc]
+        private void ShowHitEffect(Vector3 a, Vector3 b)
+        {
+            _hitEffect.transform.position = a;
+            _hitEffect.transform.forward = b;
+            _hitEffect.Emit(1);
+        }
+        [ServerCallback]
         private void Update()
         {
             SimulateBullet(Time.deltaTime);
