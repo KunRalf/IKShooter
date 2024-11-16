@@ -12,7 +12,7 @@ namespace WeaponSys
         [SerializeField] private TrailRenderer _tracer;
         [SerializeField] protected float _bulletDrop = 0.0f;
         [SerializeField] protected float _bulletSpeed = 1000.0f;
-        [SerializeField] protected List<ParticleSystem> _hitEffect;
+        [SerializeField] protected ParticleSystem _hitEffect;
         
         private float _timeBullet;
         private Vector3 _initialPosition;
@@ -37,7 +37,7 @@ namespace WeaponSys
         [Server]
         private void DestroySelf()
         {
-            NetworkServer.Destroy(gameObject);
+            // NetworkServer.Destroy(gameObject);
         }
         private void SimulateBullet(float deltaTime)
         {
@@ -63,16 +63,8 @@ namespace WeaponSys
 
             if (Physics.Raycast(_ray, out _hitInfo, distance))
             {
-                foreach (ParticleSystem hit in _hitEffect)
-                {
-                    hit.transform.position = _hitInfo.point;
-                    hit.transform.forward = _hitInfo.normal;
-                    hit.Emit(1);
-                        
-                    _tracer.transform.position = _hitInfo.point;
-                    _timeBullet = _maxLifeTime;
-                }
 
+                ShowHitEffect();
                 if(_hitInfo.transform.GetComponent<PlayerHealth>() != null)
                 {
                     _hitInfo.transform.GetComponent<PlayerHealth>().TakeDamage(15);
@@ -87,6 +79,14 @@ namespace WeaponSys
             }
         }
 
+        [ClientRpc]
+        private void ShowHitEffect()
+        {
+            _hitEffect.transform.position = _hitInfo.point;
+            _hitEffect.transform.forward = _hitInfo.normal;
+            _hitEffect.Emit(1);
+        }
+        
         private void Update()
         {
             SimulateBullet(Time.deltaTime);
