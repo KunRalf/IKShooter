@@ -90,6 +90,7 @@ namespace WeaponSys
         [ClientRpc]
         private void ShowHitEffect(Vector3 a, Vector3 b)
         {
+            _hitEffect.gameObject.SetActive(true);
             _hitEffect.transform.position = a;
             _hitEffect.transform.forward = b;
             _hitEffect.Emit(1);

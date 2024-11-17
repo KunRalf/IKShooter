@@ -383,6 +383,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   _moveSpeed: 3
+  _jumpForce: 50
   _groundCheck: {fileID: 0}
   _radiusCheckGround: 0
   _groundMask:
