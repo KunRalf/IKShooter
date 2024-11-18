@@ -59,7 +59,8 @@ namespace Player
         private void RpcUpdateMoveAnim(Vector2 axis)
         {
             if(_animator==null) return;
-            _animator.SetFloat("Velocity", axis.magnitude);
+            _animator.SetFloat("InputX", axis.x);
+            _animator.SetFloat("InputY", axis.y);
         }
 
 
