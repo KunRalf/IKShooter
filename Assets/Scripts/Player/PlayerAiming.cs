@@ -21,11 +21,12 @@ namespace Player
         {
             _cam = Camera.main;
         }
-
+        
+        
         private void FixedUpdate()
         {
             if(!isOwned) return;
-            ChangeVisableCursor();
+           
             float yawCamera = _cam.transform.rotation.eulerAngles.y;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, yawCamera,0), _turnSpeed * Time.fixedDeltaTime);
         }
@@ -43,6 +44,7 @@ namespace Player
         private void Update()
         {
             if(!isOwned) return;
+            ChangeVisableCursor();
             if (Input.GetKey(KeyCode.Mouse1))
             {
                 CmdChangeAimingRig(Time.deltaTime / _aimDuration);
