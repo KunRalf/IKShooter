@@ -462,10 +462,12 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  _weaponType: 1
   _weaponRecoil: {fileID: 3800581018393958035}
   _muzzleFlash:
   - {fileID: 5225245332467771055}
   - {fileID: 5224964076235712009}
+  _weaponData: {fileID: 11400000, guid: c2d73654379c5564e965461114eb199b, type: 2}
   _bullet: {fileID: 1841864134848052728, guid: 19bb2a88a4a1ade44bc91b51eb70a636, type: 3}
   _raycastOrigin: {fileID: 631224069645234816}
   _aimlook: {fileID: 0}

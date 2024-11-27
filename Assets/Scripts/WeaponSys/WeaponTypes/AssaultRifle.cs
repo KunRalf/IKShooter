@@ -1,6 +1,5 @@
 ﻿using Mirror;
 using UnityEngine;
-using WeaponSys.Bullets;
 
 namespace WeaponSys.WeaponTypes
 {
@@ -8,20 +7,12 @@ namespace WeaponSys.WeaponTypes
     {
         public override void Shoot()
         {
-            if (!CanShoot()) return;
-            Bullet bullet = Instantiate(_bullet, _shootPoint.position, _shootPoint.rotation);
+            if(!CanShoot())return;
+            var bullet = Instantiate(_bullet, _raycastOrigin.position, Quaternion.identity);
             NetworkServer.Spawn(bullet.gameObject, connectionToClient);
+            bullet.Init(_raycastOrigin.position, (_aimlook.position - _raycastOrigin.position).normalized);
             _currentAmmo--;
-            _recoil.GenerateRecoil();
-            UpdateFireCooldown();
-        }
-
-        private Vector3 GetSpreadDirection()
-        {
-            Vector3 direction = transform.forward;
-            direction.x += Random.Range(-_weaponData.BulletSpread, _weaponData.BulletSpread);
-            direction.y += Random.Range(-_weaponData.BulletSpread, _weaponData.BulletSpread);
-            return direction.normalized;
+           UpdateFireCooldown();
         }
     }
 }

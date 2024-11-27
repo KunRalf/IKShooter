@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -9,20 +10,28 @@ namespace Player
     public class PlayerWeaponSystem : NetworkBehaviour
     {
         // [SerializeField] private List<Weapon> _weapons;
-        [FormerlySerializedAs("_weapon"),SerializeField] public RaycastWeapon weaponExample;
+        [FormerlySerializedAs("_weapon"),SerializeField] public Weapon weaponExample;
         [SerializeField] private PlayerSetRig _playerSetRig;
         
         private int currentWeaponIndex = 0;
 
+        public event Action<int> OnUpdateAmmo;
+
         private void Start()
         {
             // EquipWeapon(currentWeaponIndex);
+            weaponExample.OnUpdateAmmo += UpdateAmmo;
+        }
+
+        private void OnDisable()
+        {
+            weaponExample.OnUpdateAmmo -= UpdateAmmo;
         }
 
         private void Update()
         {
             
-                if(Input.GetKeyDown(KeyCode.Mouse0))
+                if(Input.GetKey(KeyCode.Mouse0))
                 {
                     CmdShoot();
                 }
@@ -54,10 +63,10 @@ namespace Player
             //     CmdShoot();
             // }
             //
-            // if (Input.GetKeyDown(KeyCode.R))
-            // {
-            //     _weapons[currentWeaponIndex].Reload();
-            // }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                weaponExample.Reload();
+            }
         }
 
         [Command]
@@ -71,6 +80,11 @@ namespace Player
         private void RPCEffects()
         {
             weaponExample.Effects();
+        }
+
+        protected void UpdateAmmo(int count)
+        {
+            OnUpdateAmmo?.Invoke(count);
         }
         
         // private void EquipWeapon(int index)

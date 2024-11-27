@@ -1,29 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using Mirror;
+﻿using Mirror;
 using Player;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace WeaponSys
+namespace WeaponSys.Bullets
 {
     public class RaycastBullet : NetworkBehaviour
     {
+        [SerializeField] protected BulletData _bulletData;
         [SerializeField] private TrailRenderer _tracer;
-        [SerializeField] protected float _bulletDrop = 0.0f;
-        [SerializeField] protected float _bulletSpeed = 1000.0f;
         [SerializeField] protected ParticleSystem _hitEffect;
         
         private float _timeBullet;
         private Vector3 _initialPosition;
         private Vector3 _initialVelocity;
         private Ray _ray;
-        private float _maxLifeTime = 30.0f;
         private RaycastHit _hitInfo;
 
         public void Init(Vector3 initialPos, Vector3 initialVector)
         {
-            _initialVelocity = initialVector * _bulletSpeed;
+            _initialVelocity = initialVector * _bulletData.InitialSpeed;
             _initialPosition = initialPos;
             _tracer.AddPosition(_initialPosition);
             DestroyBullet();
@@ -31,13 +26,13 @@ namespace WeaponSys
         
         private void DestroyBullet()
         {
-             Invoke(nameof(DestroySelf), _tracer.time);
+             Invoke(nameof(DestroySelf), _bulletData.Lifetime);
         }
         
         [Server]
         private void DestroySelf()
         {
-             // NetworkServer.Destroy(gameObject);
+             NetworkServer.Destroy(gameObject);
         }
         private void SimulateBullet(float deltaTime)
         {
@@ -50,7 +45,7 @@ namespace WeaponSys
         
         private Vector3 GetPosition(RaycastBullet bullet)
         {
-            Vector3 gravity = Vector3.down * _bulletDrop;
+            Vector3 gravity = Vector3.down * _bulletData.BulletDropSpeed;
             return (bullet._initialPosition) + (bullet._initialVelocity * bullet._timeBullet + 0.5f * gravity * bullet._timeBullet * bullet._timeBullet);
         }
         
@@ -68,7 +63,7 @@ namespace WeaponSys
                 
                 if(_hitInfo.transform.GetComponent<PlayerHealth>() != null)
                 {
-                    _hitInfo.transform.GetComponent<PlayerHealth>().TakeDamage(15);
+                    _hitInfo.transform.GetComponent<PlayerHealth>().TakeDamage(_bulletData.Damage);
                 }
                 ShowHitEffect(_hitInfo.point, _hitInfo.normal);
                 DestroySelf();

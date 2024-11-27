@@ -27,6 +27,7 @@ namespace Player
                 _hud = Instantiate(_hudPrefab);
                 _playerHealth.OnHealthChangedEvent += _hud.UpdateHealth;
                 _playerHealth.OnArmorChangedEvent += _hud.UpdateArmor;
+                _playerWeaponSystem.OnUpdateAmmo += _hud.UpdateAmmo;
             }
         
         }

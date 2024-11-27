@@ -6,9 +6,8 @@ namespace WeaponSys.Bullets
     public class BulletData : ScriptableObject
     {
         [field:SerializeField] public float Damage {get; private set;}
-        
         [field:SerializeField] public float InitialSpeed {get; private set;}
-        
+        [field:SerializeField] public float BulletDropSpeed {get; private set;}
         [field:SerializeField] public float Lifetime {get; private set;}
         
     }

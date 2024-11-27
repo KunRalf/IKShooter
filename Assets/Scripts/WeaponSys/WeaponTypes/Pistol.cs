@@ -1,4 +1,6 @@
-﻿using WeaponSys.Bullets;
+﻿using Mirror;
+using UnityEngine;
+using WeaponSys.Bullets;
 
 namespace WeaponSys.WeaponTypes
 {
@@ -7,9 +9,9 @@ namespace WeaponSys.WeaponTypes
         public override void Shoot()
         {
             if (!CanShoot()) return;
-
-            Bullet bullet = Instantiate(_bullet, _shootPoint.position, _shootPoint.rotation);
-
+            var bullet = Instantiate(_bullet, _raycastOrigin.position, Quaternion.identity);
+            NetworkServer.Spawn(bullet.gameObject, connectionToClient);
+            bullet.Init(_raycastOrigin.position, (_aimlook.position - _raycastOrigin.position).normalized);
             _currentAmmo--;
             UpdateFireCooldown();
         }
