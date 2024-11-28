@@ -1,4 +1,6 @@
-﻿using Mirror;
+﻿using System.Collections;
+using System.Runtime.CompilerServices;
+using Mirror;
 using Player;
 using UnityEngine;
 
@@ -15,18 +17,23 @@ namespace WeaponSys.Bullets
         private Vector3 _initialVelocity;
         private Ray _ray;
         private RaycastHit _hitInfo;
+        private IEnumerator _destroyBullet;
+        private bool _isStopBullet;
 
         public void Init(Vector3 initialPos, Vector3 initialVector)
         {
             _initialVelocity = initialVector * _bulletData.InitialSpeed;
             _initialPosition = initialPos;
             _tracer.AddPosition(_initialPosition);
-            DestroyBullet();
+            _destroyBullet =  DestroyBullet();
+            _tracer.time = _bulletData.Lifetime;
+            StartCoroutine(_destroyBullet);
         }
-        
-        private void DestroyBullet()
+
+        private IEnumerator DestroyBullet()
         {
-             Invoke(nameof(DestroySelf), _bulletData.Lifetime);
+            yield return new WaitForSeconds(_bulletData.Lifetime);
+            DestroySelf();
         }
         
         [Server]
@@ -55,18 +62,17 @@ namespace WeaponSys.Bullets
             Vector3 direction = (end - start).normalized;
             _ray.origin = start;
             _ray.direction = direction;
-
-
             if (Physics.Raycast(_ray, out _hitInfo, distance))
             {
-
-                
                 if(_hitInfo.transform.GetComponent<PlayerHealth>() != null)
                 {
                     _hitInfo.transform.GetComponent<PlayerHealth>().TakeDamage(_bulletData.Damage);
+                    DestroySelf();
                 }
                 ShowHitEffect(_hitInfo.point, _hitInfo.normal);
-                DestroySelf();
+                _isStopBullet = true;
+                StopCoroutine(_destroyBullet);
+                StartCoroutine(DestroyBullet());
             }
             else
             {
@@ -93,6 +99,7 @@ namespace WeaponSys.Bullets
         [ServerCallback]
         private void Update()
         {
+            if(_isStopBullet) return;
             SimulateBullet(Time.deltaTime);
         }
     }
