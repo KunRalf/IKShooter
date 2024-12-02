@@ -12,6 +12,7 @@ namespace WeaponSys.WeaponTypes
             NetworkServer.Spawn(bullet.gameObject, connectionToClient);
             bullet.Init(_raycastOrigin.position, (_aimlook.position - _raycastOrigin.position).normalized);
             _currentAmmo--;
+            _weaponRecoil.GenerateRecoil();
            UpdateFireCooldown();
         }
     }

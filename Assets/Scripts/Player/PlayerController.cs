@@ -1,4 +1,5 @@
-﻿using Mirror;
+﻿using Cinemachine;
+using Mirror;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -14,14 +15,14 @@ namespace Player
         [SerializeField] private PlayerSetRig _playerSetRig;
         [SerializeField] private PlayerHealthBar _playerHealthBar;
         [SyncVar] [SerializeField] private GameObject _aimLook;
-        [SerializeField] private GameObject _camera;
+        [SerializeField] private CinemachineFreeLook _camera;
         [SerializeField] private PlayerHud _hudPrefab;
         
         private PlayerHud _hud;
 
         public override void OnStartClient()
         {
-            _camera.SetActive(isOwned);
+            _camera.gameObject.SetActive(isOwned);
             if(isOwned)
             {
                 _hud = Instantiate(_hudPrefab);
@@ -37,6 +38,7 @@ namespace Player
             _aimLook = aimLook;
             _playerSetRig.Init(_aimLook);
             _playerWeaponSystem.weaponExample.Init(aimLook);
+            _playerWeaponSystem.SetCameraToRecoil(_camera);
             _playerHealth.SetHeroStats(100,100);
            
         }

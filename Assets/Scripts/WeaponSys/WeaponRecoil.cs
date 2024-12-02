@@ -26,9 +26,14 @@ namespace WeaponSys
              _time = _duration;
         }
 
+        public void SetCam(CinemachineFreeLook cam)
+        {
+            _cam = cam;
+        }
+
         private void Update()
         {
-            return;
+           if(_cam == null)return;
             if (_time > 0)
             {
                 _cam.m_YAxis.Value -= ((Random.Range(-_verticalRecoil.x, _verticalRecoil.y) / 1000) * Time.deltaTime) / _duration;

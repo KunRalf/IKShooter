@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Cinemachine;
 using Mirror;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -14,6 +15,7 @@ namespace Player
         [SerializeField] private PlayerSetRig _playerSetRig;
         
         private int currentWeaponIndex = 0;
+        private WeaponRecoil _weaponRecoil;
 
         public event Action<int> OnUpdateAmmo;
 
@@ -21,6 +23,7 @@ namespace Player
         {
             // EquipWeapon(currentWeaponIndex);
             weaponExample.OnUpdateAmmo += UpdateAmmo;
+          
         }
 
         private void OnDisable()
@@ -28,12 +31,19 @@ namespace Player
             weaponExample.OnUpdateAmmo -= UpdateAmmo;
         }
 
+        public void SetCameraToRecoil(CinemachineFreeLook cam)
+        {
+            _weaponRecoil = weaponExample.GetComponent<WeaponRecoil>();
+            _weaponRecoil.SetCam(cam);
+        }
+        
         private void Update()
         {
             
                 if(Input.GetKey(KeyCode.Mouse0))
                 {
-                    CmdShoot();
+                    if(weaponExample.CanShoot())
+                        CmdShoot();
                 }
                 if(Input.GetKeyUp(KeyCode.Mouse0))
                 {

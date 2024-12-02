@@ -365,7 +365,7 @@ MonoBehaviour:
   _playerSetRig: {fileID: 1922106385043788479}
   _playerHealthBar: {fileID: 945616818068195853}
   _aimLook: {fileID: 0}
-  _camera: {fileID: 8191918298940196037}
+  _camera: {fileID: 6457753651665274657}
   _hudPrefab: {fileID: 4332988469980970164, guid: c9e774a42f70eb34f8c131884fa456c3,
     type: 3}
 --- !u!114 &9027448829426008437
@@ -522,7 +522,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_ColorSpace: 0
+    m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
 --- !u!114 &1821714209848156304
@@ -2078,7 +2078,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681621228715574451}
   serializedVersion: 8
-  lengthInSec: 0.18
+  lengthInSec: 0.05
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 1

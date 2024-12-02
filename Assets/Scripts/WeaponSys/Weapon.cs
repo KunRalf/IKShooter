@@ -25,7 +25,7 @@ namespace WeaponSys
 
         private float _delayToFire = 0f;
         [SyncVar(hook = nameof(SyncAmmo))] protected int _currentAmmo;
-
+       
         public event Action<int> OnUpdateAmmo;
         
         public void Init(GameObject aimLook)
@@ -48,7 +48,7 @@ namespace WeaponSys
             }
         }
         
-        protected bool CanShoot()
+        public bool CanShoot()
         {
             return Time.time >= _delayToFire && _currentAmmo > 0;
         }
