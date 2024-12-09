@@ -40,7 +40,18 @@ namespace Player
             _playerWeaponSystem.weaponExample.Init(aimLook);
             _playerWeaponSystem.SetCameraToRecoil(_camera);
             _playerHealth.SetHeroStats(100,100);
-           
+        }
+
+        public void ShowInteractText(string value = default)
+        {
+            if (value != default)
+            {
+                _hud.EnableInteractText(value);
+            }
+            else
+            {
+                _hud.DisableInteractText();
+            }
         }
     }
 }

@@ -3520,6 +3520,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: TigerTank
       objectReference: {fileID: 0}
+    - target: {fileID: 525608126408831952, guid: e4b7a5bc0c9c74445924c48f3343a5f7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 772952155954845580, guid: e4b7a5bc0c9c74445924c48f3343a5f7,
+        type: 3}
+      propertyPath: sceneId
+      value: 4141970307
+      objectReference: {fileID: 0}
     - target: {fileID: 1394765263085500935, guid: e4b7a5bc0c9c74445924c48f3343a5f7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3568,6 +3578,16 @@ PrefabInstance:
     - target: {fileID: 1394765263085500935, guid: e4b7a5bc0c9c74445924c48f3343a5f7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2854662785704639903, guid: e4b7a5bc0c9c74445924c48f3343a5f7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3385339696651285560, guid: e4b7a5bc0c9c74445924c48f3343a5f7,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
