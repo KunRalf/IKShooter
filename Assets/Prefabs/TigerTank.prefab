@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7962123148994797921}
   - component: {fileID: 8722300318669887447}
   - component: {fileID: 772952155954845580}
+  - component: {fileID: 6046938679140086688}
   m_Layer: 0
   m_Name: TigerTank
   m_TagString: Untagged
@@ -134,6 +135,33 @@ MonoBehaviour:
   serverOnly: 0
   visibility: 0
   hasSpawned: 0
+--- !u!54 &6046938679140086688
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525608126408831952}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &804720088825629749
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +173,7 @@ GameObject:
   - component: {fileID: 8012880217155427432}
   - component: {fileID: 2863950823172841471}
   - component: {fileID: 8746225640524212281}
-  - component: {fileID: 4455256021165528989}
+  - component: {fileID: 7049016559392501272}
   m_Layer: 0
   m_Name: tiger-body
   m_TagString: Untagged
@@ -219,8 +247,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4455256021165528989
-MeshCollider:
+--- !u!65 &7049016559392501272
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -237,10 +265,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: b25d451fc0bb04350a27ae6d523ae8c1, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 3.832582, y: 1.4232726, z: 6.336228}
+  m_Center: {x: -0.00000047683716, y: 1.085378, z: -0.14038157}
 --- !u!1 &2056960268941521048
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +279,6 @@ GameObject:
   - component: {fileID: 8911205494719993122}
   - component: {fileID: 6003858016965757644}
   - component: {fileID: 5987413148112403852}
-  - component: {fileID: 4925541716650499637}
   m_Layer: 0
   m_Name: tiger-wheel4
   m_TagString: Untagged
@@ -326,28 +352,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4925541716650499637
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056960268941521048}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300010, guid: b25d451fc0bb04350a27ae6d523ae8c1, type: 3}
 --- !u!1 &2120892074255632742
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +363,6 @@ GameObject:
   - component: {fileID: 2631637749069045101}
   - component: {fileID: 1198221468535333528}
   - component: {fileID: 5576968730108681463}
-  - component: {fileID: 441799981681195904}
   m_Layer: 0
   m_Name: tiger-wheel10
   m_TagString: Untagged
@@ -433,28 +436,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &441799981681195904
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2120892074255632742}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: b25d451fc0bb04350a27ae6d523ae8c1, type: 3}
 --- !u!1 &2659520170901481658
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,7 +447,7 @@ GameObject:
   - component: {fileID: 7442559205474696293}
   - component: {fileID: 6788477884922016687}
   - component: {fileID: 5582827011460116616}
-  - component: {fileID: 1075220592374872919}
+  - component: {fileID: 5133284535440944447}
   m_Layer: 0
   m_Name: tiger-belt
   m_TagString: Untagged
@@ -539,8 +520,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1075220592374872919
-MeshCollider:
+--- !u!65 &5133284535440944447
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -557,10 +538,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300022, guid: b25d451fc0bb04350a27ae6d523ae8c1, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 3.6594367, y: 1.1227943, z: 5.765562}
+  m_Center: {x: -0.00000017881393, y: 0.5619653, z: 0.015275955}
 --- !u!1 &3104130903961802946
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,7 +552,6 @@ GameObject:
   - component: {fileID: 2103683653566943531}
   - component: {fileID: 1228361290628512894}
   - component: {fileID: 8983283179731628227}
-  - component: {fileID: 3312586565816013155}
   m_Layer: 0
   m_Name: tiger-wheel6
   m_TagString: Untagged
@@ -646,28 +625,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3312586565816013155
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3104130903961802946}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300014, guid: b25d451fc0bb04350a27ae6d523ae8c1, type: 3}
 --- !u!1 &3621421683749502345
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,7 +811,6 @@ GameObject:
   - component: {fileID: 216768867102292156}
   - component: {fileID: 3415374586126735518}
   - component: {fileID: 2854124573590213754}
-  - component: {fileID: 622069859960872799}
   m_Layer: 0
   m_Name: tiger-wheel3
   m_TagString: Untagged
@@ -928,28 +884,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &622069859960872799
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5230877382516699572}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300008, guid: b25d451fc0bb04350a27ae6d523ae8c1, type: 3}
 --- !u!1 &6065875969230849882
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,7 +895,6 @@ GameObject:
   - component: {fileID: 2378605639481589913}
   - component: {fileID: 3175633622051467451}
   - component: {fileID: 1050585240743197366}
-  - component: {fileID: 7783734078494226996}
   m_Layer: 0
   m_Name: tiger-wheel5
   m_TagString: Untagged
@@ -1035,28 +968,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7783734078494226996
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6065875969230849882}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300012, guid: b25d451fc0bb04350a27ae6d523ae8c1, type: 3}
 --- !u!1 &6213989355296445746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,7 +979,6 @@ GameObject:
   - component: {fileID: 4032395710221669176}
   - component: {fileID: 2283297806112299203}
   - component: {fileID: 4699876478111563853}
-  - component: {fileID: 2195703977111396526}
   m_Layer: 0
   m_Name: tiger-wheel2
   m_TagString: Untagged
@@ -1142,28 +1052,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2195703977111396526
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6213989355296445746}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300006, guid: b25d451fc0bb04350a27ae6d523ae8c1, type: 3}
 --- !u!1 &6731473349397459424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,7 +1063,6 @@ GameObject:
   - component: {fileID: 5998601666317128753}
   - component: {fileID: 8645966710039891140}
   - component: {fileID: 3662081747989339653}
-  - component: {fileID: 7859272766104923770}
   m_Layer: 0
   m_Name: tiger-wheel8
   m_TagString: Untagged
@@ -1249,28 +1136,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7859272766104923770
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6731473349397459424}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300018, guid: b25d451fc0bb04350a27ae6d523ae8c1, type: 3}
 --- !u!1 &7169054789755178717
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,7 +1147,6 @@ GameObject:
   - component: {fileID: 9107668494305430619}
   - component: {fileID: 4084620490763194399}
   - component: {fileID: 3135687855221376770}
-  - component: {fileID: 7166262027021660417}
   m_Layer: 0
   m_Name: tiger-wheel7
   m_TagString: Untagged
@@ -1356,28 +1220,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7166262027021660417
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7169054789755178717}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300016, guid: b25d451fc0bb04350a27ae6d523ae8c1, type: 3}
 --- !u!1 &7563928998735739637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,7 +1231,6 @@ GameObject:
   - component: {fileID: 3705803088421746287}
   - component: {fileID: 9220556301254336195}
   - component: {fileID: 3004085553963004850}
-  - component: {fileID: 5622131005395434073}
   m_Layer: 0
   m_Name: tiger-wheel9
   m_TagString: Untagged
@@ -1463,28 +1304,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5622131005395434073
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7563928998735739637}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300020, guid: b25d451fc0bb04350a27ae6d523ae8c1, type: 3}
 --- !u!1 &8019569689636322018
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,7 +1315,7 @@ GameObject:
   - component: {fileID: 6904110890948617615}
   - component: {fileID: 3384807700777860028}
   - component: {fileID: 4679800924687807017}
-  - component: {fileID: 1411694228982878910}
+  - component: {fileID: 2853964013749367468}
   m_Layer: 0
   m_Name: tiger-head
   m_TagString: Untagged
@@ -1569,8 +1388,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1411694228982878910
-MeshCollider:
+--- !u!65 &2853964013749367468
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1587,10 +1406,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300024, guid: b25d451fc0bb04350a27ae6d523ae8c1, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 2.3797257, y: 0.96551174, z: 2.9017482}
+  m_Center: {x: -0.00000011920929, y: 0.48275527, z: -0.12916803}
 --- !u!1 &8308512661363257422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,7 +1420,6 @@ GameObject:
   - component: {fileID: 6652245709325263634}
   - component: {fileID: 2559096575096151800}
   - component: {fileID: 1204273663578602483}
-  - component: {fileID: 553403477891349012}
   m_Layer: 0
   m_Name: tiger-wheel1
   m_TagString: Untagged
@@ -1676,28 +1493,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &553403477891349012
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8308512661363257422}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300004, guid: b25d451fc0bb04350a27ae6d523ae8c1, type: 3}
 --- !u!1 &9039857304152519094
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,7 +1504,7 @@ GameObject:
   - component: {fileID: 5483562447595109419}
   - component: {fileID: 7856576818727157867}
   - component: {fileID: 2189676559294439033}
-  - component: {fileID: 2111367379332464875}
+  - component: {fileID: 1611034002147418406}
   m_Layer: 0
   m_Name: tiger-cannon
   m_TagString: Untagged
@@ -1783,8 +1578,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2111367379332464875
-MeshCollider:
+--- !u!136 &1611034002147418406
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1801,7 +1596,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300026, guid: b25d451fc0bb04350a27ae6d523ae8c1, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.28660393
+  m_Height: 3.83284
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 2.066576}
