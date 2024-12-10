@@ -63,6 +63,7 @@ namespace Player
 
         private void Move()
         {
+            if(!_isGrounded) return;
             var axis = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             _direction = transform.forward * axis.y + transform.right * axis.x;
             _direction.Normalize();

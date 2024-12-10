@@ -20,7 +20,7 @@ namespace Player
         
         private PlayerHud _hud;
 
-        public override void OnStartClient()
+        public override void OnStartLocalPlayer()
         {
             _camera.gameObject.SetActive(isOwned);
             if(isOwned)
@@ -30,8 +30,13 @@ namespace Player
                 _playerHealth.OnArmorChangedEvent += _hud.UpdateArmor;
                 _playerWeaponSystem.OnUpdateAmmo += _hud.UpdateAmmo;
             }
-        
+
         }
+
+        // public override void OnStartClient()
+        // {
+        //
+        // }
 
         public void Init(GameObject aimLook)
         {
