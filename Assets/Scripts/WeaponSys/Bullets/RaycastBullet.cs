@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Runtime.CompilerServices;
+using Interfaces;
 using Mirror;
 using Player;
 using UnityEngine;
@@ -64,9 +65,9 @@ namespace WeaponSys.Bullets
             _ray.direction = direction;
             if (Physics.Raycast(_ray, out _hitInfo, distance))
             {
-                if(_hitInfo.transform.GetComponent<PlayerHealth>() != null)
+                if(_hitInfo.transform.TryGetComponent<IDamageable>(out var damageable))
                 {
-                    _hitInfo.transform.GetComponent<PlayerHealth>().TakeDamage(_bulletData.Damage);
+                    damageable.TakeDamage(_bulletData.Damage);
                     DestroySelf();
                 }
                 ShowHitEffect(_hitInfo.point, _hitInfo.normal);

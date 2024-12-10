@@ -1,10 +1,11 @@
 ﻿using System;
+using Interfaces;
 using Mirror;
 using UnityEngine;
 
 namespace Player
 {
-    public class PlayerHealth : NetworkBehaviour
+    public class PlayerHealth : NetworkBehaviour, IDamageable, IRestorationArmor, IRestorationHealth
     {
         [SyncVar(hook = nameof(OnHealthChanged))]
         private float _currentHealth;
@@ -65,13 +66,13 @@ namespace Player
         }
 
         [Server]
-        public void HealArmor(float amount)
+        public void RestoreArmor(float amount)
         {
             _currentArmor = Mathf.Min(_currentArmor + amount, _maxArmor);
         }
 
         [Server]
-        public void HealHealth(float amount)
+        public void RestoreHealth(float amount)
         {
             _currentHealth = Mathf.Min(_currentHealth + amount, _maxHealth);
         }
